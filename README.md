@@ -15,8 +15,9 @@ terraform init
 terraform validate
 
 terraform plan
-Remember to adjust the module's configuration files and variables according to your specific requirements and environment settings.
+
 terraform apply
+
 Remember to adjust the module's configuration files and variables according to your specific requirements and environment settings.
 
 License
