@@ -1,4 +1,4 @@
-php_mysql_aurora_web_app
+php_mysql_aurora_web_appgit 
 This repository contains a simple Terraform module for deploying a PHP web application with an Aurora database cluster. The module supports both development (dev) and production (prod) environments.
 
 Getting Started
