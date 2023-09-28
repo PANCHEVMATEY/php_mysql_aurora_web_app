@@ -3,14 +3,9 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "cidr_block" {
-  description = "CIDR block for ingress rules."
-  type        = string
-}
-
-variable "availability_zones" {
-  description = "A list of availability zones for the Aurora cluster."
-  type        = list(string)
+variable "vpc_cidr_block" {
+  type = string
+  description = "CIDR block of your VPC."
 }
 
 variable "cluster_identifier" {
@@ -44,16 +39,45 @@ variable "max_capacity" {
 }
 
 variable "tags" {
-  description = "A map of tags to apply to the resources."
   type        = map(string)
+  description = "Tags to apply to the resources."
+  default     = {
+    Name = "dev-aurora-cluster"
+    Environment = "dev"
+  }
 }
 
 variable "region" {
   description = "AWS region"
   type        = string
 }
-variable "subnets" {
-  description = "List of subnet IDs to use"
-  type        = string
+
+variable "cidr_ranges" {
+  type = string
 }
 
+variable "subnet_type" {
+  default = {
+    public  = "public"
+    private = "private"
+  }
+}
+
+variable "availability_zones" {
+  default = {
+    availability_zone_1a = "eu-central-1a",
+    availability_zone_1b = "eu-central-1a"
+  }
+}
+
+variable "environment" {
+  type = string
+}
+
+variable "instance_data" {
+  default = {
+    name-prefix   = "Web-server"
+    image-id      = "ami-0649a986224ded9da"
+    instance_type = "t2.micro"
+  }
+}
