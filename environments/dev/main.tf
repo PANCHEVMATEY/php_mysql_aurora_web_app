@@ -16,5 +16,6 @@ module "aurora_rds" {
   cidr_ranges = var.cidr_ranges
   vpc_cidr_block = var.vpc_cidr_block
   environment     = var.environment
+  subnet_cidr_block = var.subnet_cidr_block
 }
 
