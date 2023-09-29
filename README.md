@@ -3,7 +3,7 @@ php_mysql_aurora_web_appgit
 =======
 php_mysql_aurora_web_app
 
->>>>>>> fae4a4bda29c32ebac2eca97c33b5d0843947516
+>>>>>>>
 This repository contains a simple Terraform module for deploying a PHP web application with an Aurora database cluster. The module supports both development (dev) and production (prod) environments.
 
 Getting Started To use this module with multiple environments, you need to create an Amazon S3 bucket to store the Terraform state. Follow these steps:
@@ -13,7 +13,9 @@ Clone the repository to your local machine:
 
 git clone [https://github.com/your-username/php_mysql_aurora_web_app.git](https://github.com/PANCHEVMATEY/php_mysql_aurora_web_app.git)
 
-aws s3 mb s3://tfvars-envs
+cd dev
+
+aws s3 mb s3://tfvars-envs // make sure the name is available
 
 terraform init
 

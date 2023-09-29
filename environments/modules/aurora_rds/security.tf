@@ -5,17 +5,17 @@ resource "aws_security_group" "VPC-sg" {
   vpc_id      = aws_vpc.aws-vpc.id
 
   ingress {
-    description = "HTTP from VPC"
+    description = "HTTP ingress rule"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    description = "ssh ingress rule"
+    description = "SSH ingress rule"
     from_port   = 22
     to_port     = 22
-    protocol    = "ssh"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
