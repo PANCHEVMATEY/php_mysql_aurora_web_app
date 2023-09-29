@@ -63,6 +63,10 @@ variable "subnet_type" {
   }
 }
 
+variable "subnet_cidr_block" {
+  description = "CIDR block for the subnet."
+  type        = string
+}
 variable "availability_zones" {
   default = {
     availability_zone_1a = "eu-central-1a",

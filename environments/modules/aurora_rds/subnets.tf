@@ -2,7 +2,7 @@
 #Public for the EC2
 resource "aws_subnet" "web-server-sub-pub" {
   vpc_id            = aws_vpc.aws-vpc.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.subnet_cidr_block
   availability_zone = var.availability_zones[0]
   tags = {
     Name = "${lookup(var.subnet_type, "public")}-subnet-1"
