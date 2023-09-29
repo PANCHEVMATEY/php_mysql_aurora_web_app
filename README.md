@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<<
 php_mysql_aurora_web_appgit 
 =======
 php_mysql_aurora_web_app
