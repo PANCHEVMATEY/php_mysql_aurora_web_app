@@ -70,7 +70,8 @@ variable "subnet_cidr_block" {
 variable "availability_zones" {
   default = {
     availability_zone_1a = "eu-central-1a",
-    availability_zone_1b = "eu-central-1b"
+    availability_zone_1b = "eu-central-1b",
+    availability_zone_1c = "eu-central-1c"
   }
 }
 

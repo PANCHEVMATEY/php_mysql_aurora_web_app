@@ -8,7 +8,7 @@ resource "aws_rds_cluster" "aurora" {
   database_name        = var.database_name
   master_username      = var.master_username
   master_password      = var.master_password
-  db_subnet_group_name = aws_db_subnet_group.aurora-sub-private.name
+  db_subnet_group_name = aws_db_subnet_group.aurora-db-subnet-group.name
   scaling_configuration {
     min_capacity = var.min_capacity
     max_capacity = var.max_capacity

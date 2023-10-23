@@ -13,5 +13,4 @@ resource "aws_route_table" "internet-gateway" {
 resource "aws_route_table_association" "terraform-associate1" {
   subnet_id      = aws_subnet.web-server-sub-pub.id
   route_table_id = aws_route_table.internet-gateway.id
-
 }
