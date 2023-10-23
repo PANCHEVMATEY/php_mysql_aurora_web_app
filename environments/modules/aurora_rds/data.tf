@@ -6,6 +6,6 @@ data "aws_vpc" "vpc" {
 # This data source retrieves information about the subnets within the VPC specified
 # by "vpc_id" and in the availability zone "eu-central-1a."
 data "aws_subnet" "subnets" {
-  vpc_id = var.vpc_id
+  vpc_id            = var.vpc_id
   availability_zone = "eu-central-1a"
 }

@@ -4,7 +4,7 @@ variable "vpc_id" {
 }
 
 variable "vpc_cidr_block" {
-  type = string
+  type        = string
   description = "CIDR block of your VPC."
 }
 
@@ -41,8 +41,8 @@ variable "max_capacity" {
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to the resources."
-  default     = {
-    Name = "dev-aurora-cluster"
+  default = {
+    Name        = "dev-aurora-cluster"
     Environment = "dev"
   }
 }
@@ -70,7 +70,7 @@ variable "subnet_cidr_block" {
 variable "availability_zones" {
   default = {
     availability_zone_1a = "eu-central-1a",
-    availability_zone_1b = "eu-central-1a"
+    availability_zone_1b = "eu-central-1b"
   }
 }
 
@@ -81,7 +81,7 @@ variable "environment" {
 variable "instance_data" {
   default = {
     name-prefix   = "Web-server"
-    image-id      = "ami-0649a986224ded9da"
+    image-id      = "ami-06dd92ecc74fdfb36"
     instance_type = "t2.micro"
   }
 }
