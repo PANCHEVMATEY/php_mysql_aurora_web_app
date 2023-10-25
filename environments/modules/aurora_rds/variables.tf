@@ -52,10 +52,6 @@ variable "region" {
   type        = string
 }
 
-variable "cidr_ranges" {
-  type = string
-}
-
 variable "subnet_type" {
   default = {
     public  = "public"
@@ -68,11 +64,7 @@ variable "subnet_cidr_block" {
   type        = string
 }
 variable "availability_zones" {
-  default = {
-    availability_zone_1a = "eu-central-1a",
-    availability_zone_1b = "eu-central-1b",
-    availability_zone_1c = "eu-central-1c"
-  }
+  type = list(string)
 }
 
 variable "environment" {
