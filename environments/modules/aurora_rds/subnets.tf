@@ -1,4 +1,4 @@
-# Create 2 Subnets
+# Create Subnets
 #Public for the ASG
 resource "aws_subnet" "web-server-sub-pub" {
   vpc_id            = aws_vpc.aws-vpc.id
@@ -37,6 +37,16 @@ resource "aws_subnet" "aurora-private-subnet-2" {
     Name = "${lookup(var.subnet_type, "private")}-aurora-subnet-2"
   }
 }
+
+resource "aws_subnet" "aurora-private-subnet-3" {
+  vpc_id            = aws_vpc.aws-vpc.id
+  cidr_block        = var.subnet_cidr_block
+  availability_zone = var.availability_zones[2]
+  tags = {
+    Name = "${lookup(var.subnet_type, "private")}-aurora-subnet-3"
+  }
+}
+
 #Aurora DB Subnet group
 resource "aws_db_subnet_group" "aurora-db-subnet-group" {
   name        = "aurora-subnet-group"
