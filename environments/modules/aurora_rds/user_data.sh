@@ -1,11 +1,11 @@
 #!/bin/bash
 #Install PHP with Apache on Ubuntu
-sudo apt update && sudo apt upgrade
+apt update && apt upgrade
 
-sudo apt install software-properties-common
+apt install software-properties-common
 
-sudo add-apt-repository ppa:ondrej/php
+add-apt-repository ppa:ondrej/php
 
-sudo apt -y install php7.4
+apt update
 
-sudo php -v
+apt -y install php8.1
