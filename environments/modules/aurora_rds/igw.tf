@@ -1,7 +1,7 @@
 # Create a IGW
 resource "aws_internet_gateway" "internet-gateway" {
-  vpc_id = var.vpc_id
+  vpc_id = aws_vpc.aws-vpc.id
   tags = {
-    Name = "internet-gateway"
+    Name = "Internet-gateway"
   }
 }

@@ -4,14 +4,17 @@ resource "aws_rds_cluster" "aurora" {
   engine_mode          = "serverless"
   engine_version       = "5.7.mysql_aurora.2.07.1"
   enable_http_endpoint = true
+  skip_final_snapshot  = true
+  apply_immediately    = true
   availability_zones   = var.availability_zones
   database_name        = var.database_name
   master_username      = var.master_username
   master_password      = var.master_password
   db_subnet_group_name = aws_db_subnet_group.aurora-db-subnet-group.name
   scaling_configuration {
-    min_capacity = var.min_capacity
-    max_capacity = var.max_capacity
+    min_capacity             = var.min_capacity
+    max_capacity             = var.max_capacity
+    seconds_until_auto_pause = 300
   }
 
   tags                   = var.tags

@@ -1,5 +1,6 @@
 # Create a ASG
 resource "aws_autoscaling_group" "aws-autoscaling-group" {
+  name                = "aws-autoscaling-group"
   desired_capacity    = 2
   max_size            = 2
   min_size            = 2
