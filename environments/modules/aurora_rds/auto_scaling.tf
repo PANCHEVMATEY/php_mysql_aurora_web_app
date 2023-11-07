@@ -4,7 +4,7 @@ resource "aws_autoscaling_group" "aws-autoscaling-group" {
   desired_capacity    = 2
   max_size            = 2
   min_size            = 2
-  vpc_zone_identifier = [aws_subnet.web-server-sub-pub.id, aws_subnet.web-server-sub-pub-2.id]
+  vpc_zone_identifier = [aws_subnet.private-web-app-1.id, aws_subnet.private-web-app-2.id]
   target_group_arns   = [aws_lb_target_group.alb-target.arn]
   launch_template {
     id      = aws_launch_template.aws-launch-template.id
@@ -34,8 +34,8 @@ resource "aws_launch_template" "aws-launch-template" {
   update_default_version = true
   network_interfaces {
     associate_public_ip_address = true
-    delete_on_termination = true
-    security_groups = [aws_security_group.VPC-sg.id]
+    delete_on_termination       = true
+    security_groups             = [aws_security_group.ALB-sg.id]
   }
   iam_instance_profile {
     name = aws_iam_instance_profile.iam-instance-profile.name

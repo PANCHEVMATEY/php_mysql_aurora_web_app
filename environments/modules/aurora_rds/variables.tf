@@ -66,11 +66,13 @@ variable "subnet_cidr_block" {
   description = "CIDR block for the subnet."
   type        = map(string)
   default = {
-    "public-subnet-1"  = "172.16.1.0/24"
-    "public-subnet-2"  = "172.16.2.0/24"
-    "private-subnet-1" = "172.16.4.0/24"
-    "private-subnet-2" = "172.16.5.0/24"
-    "private-subnet-3" = "172.16.6.0/24"
+    "public-subnet-1"      = "172.16.1.0/26"
+    "public-subnet-2"      = "172.16.2.0/26"
+    "private-subnet-app-1" = "172.16.3.0/26"
+    "private-subnet-app-2" = "172.16.7.0/26"
+    "private-subnet-1"     = "172.16.4.0/26"
+    "private-subnet-2"     = "172.16.5.0/26"
+    "private-subnet-3"     = "172.16.6.0/26"
   }
 }
 variable "availability_zones" {

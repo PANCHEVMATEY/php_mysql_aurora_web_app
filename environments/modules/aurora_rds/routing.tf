@@ -25,6 +25,14 @@ resource "aws_route_table" "private-subnet-routing-to-NAT" {
     cidr_block     = aws_subnet.aurora-private-subnet-3.cidr_block
     nat_gateway_id = aws_nat_gateway.nat-gateway-1.id
   }
+  route {
+    cidr_block     = aws_subnet.private-web-app-1.cidr_block
+    nat_gateway_id = aws_nat_gateway.nat-gateway-1.id
+  }
+  route {
+    cidr_block     = aws_subnet.private-web-app-2.cidr_block
+    nat_gateway_id = aws_nat_gateway.nat-gateway-1.id
+  }
   tags = {
     Name = "Routing table to NAT"
   }
@@ -36,9 +44,19 @@ resource "aws_route_table_association" "public-associate" {
   route_table_id = aws_route_table.internet-gateway.id
 }
 
-resource "aws_route_table_association" "public-associat-2" {
+resource "aws_route_table_association" "public-associate-2" {
   subnet_id      = aws_subnet.web-server-sub-pub-2.id
   route_table_id = aws_route_table.internet-gateway.id
+}
+
+resource "aws_route_table_association" "private-associate-webb-1" {
+  subnet_id      = aws_subnet.private-web-app-1.id
+  route_table_id = aws_route_table.private-subnet-routing-to-NAT.id
+}
+
+resource "aws_route_table_association" "private-associate-webb-2" {
+  subnet_id      = aws_subnet.private-web-app-2.id
+  route_table_id = aws_route_table.private-subnet-routing-to-NAT.id
 }
 
 resource "aws_route_table_association" "private-associate-1" {
