@@ -37,15 +37,15 @@ variable "min_capacity" {
 variable "max_capacity" {
   description = "The maximum capacity for auto-scaling."
   type        = number
-  default     = 16
+  default     = 4
 }
 
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to the resources."
   default = {
-    Name        = "The name of your cluster"
-    Environment = "Your Environment"
+    Name        = "name"
+    Environment = "dev"
   }
 }
 

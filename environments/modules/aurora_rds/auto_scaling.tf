@@ -26,12 +26,17 @@ resource "aws_autoscaling_policy" "aws-autoscaling-policy" {
   scaling_adjustment     = 2
 }
 
-# Create a Launch Configuration
+# Create a Launch Template
 resource "aws_launch_template" "aws-launch-template" {
   name_prefix            = var.instance_data.name-prefix
   image_id               = var.instance_data.image-id
   instance_type          = var.instance_data.instance_type
   update_default_version = true
+  network_interfaces {
+    associate_public_ip_address = true
+    delete_on_termination = true
+    security_groups = [aws_security_group.VPC-sg.id]
+  }
   iam_instance_profile {
     name = aws_iam_instance_profile.iam-instance-profile.name
   }
@@ -40,8 +45,6 @@ resource "aws_launch_template" "aws-launch-template" {
     value               = "Front-End"
     propagate_at_launch = true
   }
-
-  vpc_security_group_ids = [aws_security_group.VPC-sg.id]
 
   user_data = filebase64("${path.module}/user_data.sh")
 }

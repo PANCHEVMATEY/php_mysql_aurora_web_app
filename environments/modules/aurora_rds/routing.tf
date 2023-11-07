@@ -26,7 +26,7 @@ resource "aws_route_table" "private-subnet-routing-to-NAT" {
     nat_gateway_id = aws_nat_gateway.nat-gateway-1.id
   }
   tags = {
-    Name = "Routing table to private subnet"
+    Name = "Routing table to NAT"
   }
 }
 

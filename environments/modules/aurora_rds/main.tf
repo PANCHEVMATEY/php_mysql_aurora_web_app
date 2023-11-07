@@ -2,7 +2,7 @@ resource "aws_rds_cluster" "aurora" {
   cluster_identifier   = var.cluster_identifier
   engine               = "aurora-mysql"
   engine_mode          = "serverless"
-  engine_version       = "5.7.mysql_aurora.2.07.1"
+  engine_version       = "5.7.mysql_aurora.2.11.3"
   enable_http_endpoint = true
   skip_final_snapshot  = true
   apply_immediately    = true
@@ -21,8 +21,4 @@ resource "aws_rds_cluster" "aurora" {
   vpc_security_group_ids = [aws_security_group.Aurora-security-group.id]
 
 }
-
-
-
-
 
